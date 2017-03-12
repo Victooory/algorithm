@@ -53,7 +53,7 @@ public class Bag01 {
         int result = bag.solve(0, 5);  
         System.out.println(result);  
     }  
-}  
+}   
   
 class Stuff{  					//每件物品的定义
     private int weight;  
