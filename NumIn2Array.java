@@ -11,7 +11,7 @@ public class NumIn2Array {
 		boolean flag = false;
 		if(array.length==0 ||(array.length==1&&array[0].length==0)){			//判断数组是否是{}或{{}}
 			return flag;
-		}
+		} 
 		else{
 			int n = array[0].length;;		//n限定二维数组的列数，可变
 			for(int i=0;i<array.length;i++){
