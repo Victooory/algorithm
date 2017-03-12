@@ -17,7 +17,7 @@ public class About_dengcha {
 	}
 	public String solve(){
 		StringBuilder result = new StringBuilder();
-		for(;;L++){
+		for(;;L++){						
         	x = (2*sum/L+1-L)/2;
         	if(x==(int)x){
         		for(int j=0;j<L;j++){
