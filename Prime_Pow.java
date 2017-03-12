@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Prime_Pow {
 	private double n;
-	public Prime_Pow(){}
+	public Prime_Pow(){} 
 	public Prime_Pow(double n) {
 		this.n = n;
 	}
