@@ -25,7 +25,7 @@ public class AddStr_Palindrome {
 			StringBuilder sb = new StringBuilder(str);
 			if (ispalindrome(sb.deleteCharAt(i).toString())) {
 				flag = true;
-				break;
+				break; 
 			}
 		}
 		return flag;
