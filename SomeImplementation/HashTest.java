@@ -4,7 +4,11 @@ import java.awt.List;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
+/**
+ * hash遍历四种方法
+ * @author dong
+ *
+ */
 interface HashTest{
 	 public static void main(String[] args) {
 		  Map<String, String> map = new HashMap<String, String>();  
