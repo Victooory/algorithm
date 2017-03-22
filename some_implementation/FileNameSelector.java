@@ -1,4 +1,4 @@
-package algorithm.SomeImplementation;
+package algorithm.some_implementation;
 
 import java.io.File;
 import java.io.FilenameFilter;

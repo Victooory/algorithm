@@ -1,4 +1,4 @@
-package algorithm.SomeImplementation;
+package algorithm.some_implementation;
 
 /**
  * 字典树的实现
