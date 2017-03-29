@@ -7,11 +7,11 @@ import java.util.Scanner;
  * @author dong
  *
  */
-public class About_dengcha {
+public class dengcha {
 	private double sum = 0;
 	private double L = 0;
 	private double x = 0;
-	public About_dengcha(double sum,double num){
+	public dengcha(double sum,double num){
 		this.sum = sum;
 		this.L = num;
 	}
@@ -33,7 +33,7 @@ public class About_dengcha {
         Scanner sc = new Scanner(System.in);
         double n= (double)sc.nextInt();
         double l= (double)sc.nextInt();
-        About_dengcha about_dengcha = new About_dengcha(n, l);
+        dengcha about_dengcha = new dengcha(n, l);
         System.out.println(about_dengcha.solve());
 	}
 }
