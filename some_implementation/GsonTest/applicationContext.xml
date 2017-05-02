@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+
+	<bean id="book1" class="algorithm.some_implementation.GsonTest.Book">
+		<property name="name" value="Java"></property>
+		<property name="id" value="1001"></property>
+	</bean>
+	<bean id="book2" class="algorithm.some_implementation.GsonTest.Book">
+		<property name="name" value="心理学"></property>
+		<property name="id" value="1006"></property>
+	</bean>
+	<bean id="book3" class="algorithm.some_implementation.GsonTest.Book">
+		<property name="name" value="成功学"></property>
+		<property name="id" value="1008"></property>
+	</bean>
+	<bean id="student" class="algorithm.some_implementation.GsonTest.Student">
+		<property name="name" value="VI"></property>
+		<property name="age" value="28"></property>
+		<property name="book">
+			<array>
+				<ref bean="book2"></ref>
+				<ref bean="book3"></ref>
+			</array>
+		</property>
+	</bean>
+		<bean id="student2" class="algorithm.some_implementation.GsonTest.Student">
+		<property name="name" value="Do"></property>
+		<property name="age" value="22"></property>
+		<property name="book">
+			<array>
+				<ref bean="book1"></ref>
+				<ref bean="book3"></ref>
+			</array>
+		</property>
+	</bean>
+	
+</beans>
