@@ -63,7 +63,7 @@ public class Directory {
 	// 显示目录
 	public void showDir(Directory directory) { // 先判断有无文件
 		try {
-			out = new PrintWriter(new FileOutputStream("C:\\zWork\\Workspaces\\jee\\FileScanning\\result.txt"), true);
+			out = new PrintWriter(new FileOutputStream("C:\\zWork\\Workspaces\\jee\\test\\src\\result.txt"), true);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		};
