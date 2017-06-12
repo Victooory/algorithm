@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book SYSTEM "book.dtd">
+<book>
+	<chapter>
+		<chapNum> 1 </chapNum>
+		<chapTitle> Introduction to Java</chapTitle>
+	</chapter>
+	<chapter>
+		<chapNum> 2 </chapNum>
+		<chapTitle> Java fundamentals</chapTitle>
+	</chapter>
+	<chapter>
+		<chapNum> 3 </chapNum>
+		<chapTitle> Jaca control structure</chapTitle>
+	</chapter>
+	<chapter>
+		<chapNum> 4 </chapNum>
+		<chapTitle> class definitions </chapTitle>
+	</chapter>
+</book>
