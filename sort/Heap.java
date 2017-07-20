@@ -1,6 +1,7 @@
 package algorithm.sort;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 /**
  * 堆排序
  * @author dong
@@ -16,7 +17,6 @@ public class Heap {
 		System.out.println("建堆...");
 		display();
 		System.out.println();
-		
 		int lastIndex = array.length -1;
 		while(lastIndex>0){
 			swap(0,lastIndex);    //堆顶元素和堆底交换
@@ -26,7 +26,9 @@ public class Heap {
 			display();
 			System.out.println();
 		}
+
 	}
+
 	public void swap(int firstIndex,int lastIndex){
 		int temp = 0;
 		temp = array[firstIndex];
@@ -60,6 +62,15 @@ public class Heap {
 		}
 		
 	}
+	public void add(int in){
+		int[] a = new int[array.length+1];
+		for(int i=0;i<array.length;i++){
+			a[i] = array[i];
+		}
+		a[array.length] = in;
+		array = a;
+		heapSort();
+	}
 	public void printTree(int len){
 		
 	}
@@ -68,11 +79,16 @@ public class Heap {
 		for(int i:array){
 			System.out.print(i + " ");
 		}
+		System.out.println();
 	}
 	public static void main(String[] args) {
 		int[] i ={7,5,1,3,4,9,2,6,8};
 		Heap heap = new Heap(i);
 		heap.heapSort();
+		heap.display();
+		heap.add(1);
+		heap.add(131);
+		heap.add(54);
 		heap.display();
 	}
 }
