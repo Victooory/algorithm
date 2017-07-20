@@ -1,18 +1,15 @@
 package algorithm;
 
-import java.util.logging.Logger;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.BasicConfigurator;
 
-/**
- * 这个线程用来发出notify请求
- * @author yinwenjie
- */
 public class test  {
+	public static void test(int a){
+		a = 2;
+	}
 	public static void main(String[] args) {
-		System.out.println("hello world");
+		int a = 1;
+		test.test(a);
+		System.out.println(a);
 	}
 }
 
