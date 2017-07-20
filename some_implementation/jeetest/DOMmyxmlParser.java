@@ -30,7 +30,7 @@ public class DOMmyxmlParser {
 		try {
 			DocumentBuilder builder = dbf.newDocumentBuilder();				//使应用程序能够从 XML 文档获取生成 DOM 对象树的解析器
 			//InputStream in = DOMmyxmlParser.class.getClassLoader().getResourceAsStream("myxml.xml");   //new File("myxml.xml")
-			Document doc = builder.parse(new File("src\\jeetest\\myxml.xml"));				//它是文档树的根，并提供对文档数据的基本访问
+			Document doc = builder.parse(new File("src\\algorithm\\some_implementation\\jeetest\\myxml.xml"));				//它是文档树的根，并提供对文档数据的基本访问
 			Element root = doc.getDocumentElement();		//这是一种便捷属性，该属性允许直接访问文档的文档元素的子节点。
 			System.out.println("root:"+root.getTextContent());			
 			NodeList nodes = root.getChildNodes();			//NodeList 中的项可以通过从 0 开始的整数索引进行访问
