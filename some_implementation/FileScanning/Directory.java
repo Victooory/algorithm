@@ -11,10 +11,13 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 
 import javax.sound.midi.Soundbank;
+
+import algorithm.some_implementation.AboutTree.TreeNode;
 
 /**
  * 目录结构
@@ -28,7 +31,8 @@ public class Directory {
 	private long size; // 大小
 	private Set<Directory> son; // 子目录
 	private PrintWriter out;
-
+	private File file;
+	
 	public Directory() {
 		son = new HashSet<>();
 
@@ -110,6 +114,25 @@ public class Directory {
 		return rst;
 	}
 
+	//查询目录下的指定目录
+	public void getDir(Directory directory,String dirName){
+		if (son == null)
+			return;
+		for(Directory dir:directory.son){
+			if(dir.getName().equals(dirName)){
+				System.out.println(dir.getFile().getPath());
+				if(dir.getFile().isDirectory()){
+					for(Directory son:dir.son)
+					getDir(son, dirName);
+				}
+			}else{
+				if(dir.getFile().isDirectory()){
+					for(Directory son:dir.son)
+					getDir(son, dirName);
+				}
+			}
+		}
+	}
 	// ------getter and setter --------
 	public String getName() {
 		return name;
@@ -133,6 +156,14 @@ public class Directory {
 
 	public void setSon(Set<Directory> son) {
 		this.son = son;
+	}
+
+	public File getFile() {
+		return file;
+	}
+
+	public void setFile(File file) {
+		this.file = file;
 	}
 
 }

@@ -26,6 +26,7 @@ public class Scanning {
 			for (File file : files) {
 				long cursize = 0;
 				Directory son = directory.addDirectory(file.getName());
+				son.setFile(file);
 				if (file.isDirectory()) {
 					cursize = this.ScanningAll(son,file);
 				} else {
