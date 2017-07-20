@@ -23,22 +23,22 @@ public class Server {
 				server = new ServerSocket(5555);
 			} catch (IOException e1) {
 				// TODO: handle exception
-				System.out.println("锟斤拷锟节硷拷锟斤拷");
+				System.out.println("正在监听");
 			}
 			try {
-				System.out.println("锟饺达拷锟酵伙拷锟斤拷锟斤拷");
+				System.out.println("等待客户呼叫");
 				Conn = server.accept();
 				userList.add(Conn);
-				System.out.println("锟酵伙拷锟侥碉拷址锟斤拷" + Conn.getInetAddress());
+				System.out.println("客户的地址：" + Conn.getInetAddress());
 				ip = Conn.getInetAddress();
 				counter.counter++;
-				System.out.println("锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷"+counter.counter);
+				System.out.println("在线人数："+counter.counter);
 			} catch (IOException e) {
 				// TODO: handle exception
-				System.out.println("锟斤拷锟节等达拷锟酵伙拷");
+				System.out.println("正在等待客户");
 			}
 			if (Conn != null) {
-				new ServerThread(Conn,userList).start(); // 为每锟斤拷锟矫伙拷锟斤拷锟斤拷一锟斤拷专锟斤拷锟竭筹拷
+				new ServerThread(Conn,userList).start(); // 为每个用户启动一个专门线程
 			}
 		}
 	}
@@ -67,7 +67,7 @@ class ServerThread extends Thread {
 	public void run() {
 		while (true) {
 			try {
-				String s = in.readUTF(); // 锟斤拷锟斤拷
+				String s = in.readUTF(); // 阻塞
 				
 				for(int i=0;i<userList.size();i++)
 				{
@@ -76,9 +76,9 @@ class ServerThread extends Thread {
 				}
 			
 			} catch (IOException e) {
-				System.out.println("锟酵伙拷锟诫开");
+				System.out.println("客户离开");
 				counter.counter--;
-				System.out.println("锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷"+counter.counter);
+				System.out.println("在线人数："+counter.counter);
 				return;
 			}
 		}
