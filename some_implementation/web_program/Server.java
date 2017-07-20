@@ -9,11 +9,14 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.junit.experimental.theories.Theories;
+
 
 
 public class Server {
+
 	public static ArrayList<Socket>userList=new ArrayList<Socket>();
-	
+
 	public static void main(String args[]) {
 		ServerSocket server = null;
 		Socket Conn = null;
@@ -28,7 +31,7 @@ public class Server {
 			try {
 				System.out.println("等待客户呼叫");
 				Conn = server.accept();
-				userList.add(Conn);
+				add(Conn);			
 				System.out.println("客户的地址：" + Conn.getInetAddress());
 				ip = Conn.getInetAddress();
 				counter.counter++;
@@ -41,6 +44,9 @@ public class Server {
 				new ServerThread(Conn,userList).start(); // 为每个用户启动一个专门线程
 			}
 		}
+	}
+	public synchronized static void add(Socket Conn){		//对全局变量加锁
+		userList.add(Conn);
 	}
 
 }
