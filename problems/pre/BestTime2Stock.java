@@ -1,4 +1,4 @@
-package algorithm.problems;
+package algorithm.problems.pre;
 
 /**
  * 购入和卖出股票得到最佳收益

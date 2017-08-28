@@ -1,4 +1,4 @@
-package algorithm.problems;
+package algorithm.problems.pre;
 
 /**
  * 在一个上至下、左至右递增的二维数组中查找是否有指定数字

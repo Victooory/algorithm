@@ -1,6 +1,6 @@
 package algorithm.some_implementation.FileScanning;
 
-import static org.hamcrest.CoreMatchers.nullValue;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;

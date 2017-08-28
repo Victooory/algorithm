@@ -1,4 +1,4 @@
-package algorithm.problems;
+package algorithm.problems.pre;
 import java.util.Scanner;
 
 /**

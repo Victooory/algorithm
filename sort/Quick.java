@@ -1,4 +1,7 @@
 package algorithm.sort;
+
+import java.awt.event.KeyAdapter;
+
 /**
  * 快速排序	O(N*logN) 不稳定
  * 第一个为基准数 ，通过交换，使得基准数左侧全小于它 右侧全大于它（切分）
@@ -7,35 +10,35 @@ package algorithm.sort;
  * 改进：在数组小时切换到插入排序
  */
 public class Quick {
-	public void sort(Comparable[] a){
+	public void sort(int[] a){
 		sort(a,0,a.length-1);
 	}
-	public void sort(Comparable[] a,int lo,int hi){
-		if(hi <= lo) return;
-		int mid = partition(a, lo, hi);
-		sort(a,lo,mid-1);
-		sort(a, mid+1, hi);
-	}
-	public int partition(Comparable[] a,int low,int high){			//固定切分
-		Comparable key = a[low];
-		while(low<high){
-			while(key.compareTo(a[high])<0 && high > low){
-				high--;
+	public void sort(int[] a,int left,int right){
+		if(right > left){
+			int key = a[left];
+			int low = left;
+			int high = right;
+			while(low<high){
+				while(low<high && key < a[high])
+					high--;
+				if(low<high)
+					a[low++] = a[high];
+				while(low<high && key > a[low])
+					low++;
+				if(low<high)
+					a[high--] = a[low];
 			}
-			a[low] = a[high];
-			while(key.compareTo(a[low])>0 && high > low){
-				low++;
-			}
-			a[high] = a[low];
+			a[low] = key;
+			sort(a,left,low-1);
+			sort(a, low+1, right);
 		}
-		a[high] = key;
-		return high;
 	}
+
  
 	public static void main(String[] args) {
-		Integer[] a = {1,3,6,9,7,4,5,2,8,0}; //第一次固定切分后	0 1 6 9 7 4 5 2 8 3 
+		int[] a = {1,3,6,9,7,4,5,2,8,3,1}; //第一次固定切分后	0 1 6 9 7 4 5 2 8 3 
 		new Quick().sort(a);
-		for(Comparable i : a){
+		for(int i : a){
 			System.out.print(i+" ");
 		}
 	}
