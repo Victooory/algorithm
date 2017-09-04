@@ -71,7 +71,7 @@ public class Trie {
 		for (String str : strs) {
 			tree.insert(str);
 		}
-		System.out.println(tree.has("ban"));
+		System.out.println(tree.has("band"));
 	}
 	
 	//复制的
