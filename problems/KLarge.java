@@ -8,6 +8,8 @@ import java.util.Scanner;
 /**
  * 给定无序整数求其第k大的数
  * 滴滴笔试题
+ * 维护一个长度为K的数组
+ * O(n+k^2)
  * @author 10142
  *
  */
