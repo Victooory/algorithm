@@ -9,7 +9,7 @@ public class Insertion {
 	public void sort(Comparable[] a){
 		int N = a.length;
 		for(int i=1;i<N;i++){
-			for(int j=i;j>0 && a[j].compareTo(a[j-1])<0;j--){		//直到  j<j-1 不交换
+			for(int j=i;j>0 && a[j].compareTo(a[j-1])<0;j--){		// j<j-1 交换
 				exch(a, j, j-1);   		//交换
 			}
 		}

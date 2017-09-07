@@ -6,14 +6,16 @@ package algorithm.sort;
  *
  */
 public class Bubble {
+	public static int count=0;
 	public void sort(Comparable[] a){			
 		int N = a.length;
 		for(int i=0;i<N;i++){
-			for(int j=i;j<N;j++){
+			for(int j=i+1;j<N;j++){
 				
 				if(a[i].compareTo(a[j])>0){
 					exch(a, i, j);
 				}
+				count++;
 			}
 		}
 	}
@@ -22,12 +24,13 @@ public class Bubble {
 		int N=a.length;
 		for(int i=0;i<N;i++)
 		{
-			for(int j=N-1;j>0;j--)
+			for(int j=N-1;j>i;j--)
 			{
 				if(a[j].compareTo(a[j-1])<0)
 				{
 					exch(a, j, j-1);
 				}
+				count++;
 			}
 		}
 	}
@@ -43,5 +46,7 @@ public class Bubble {
 		for(Comparable i : a){
 			System.out.print(i+" ");
 		}
+		System.out.println();
+		System.out.println(count);
 	}
 }
