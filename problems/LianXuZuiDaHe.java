@@ -9,25 +9,21 @@ import java.util.Scanner;
 public class LianXuZuiDaHe {
 
     public static void main(String[] args) {
-    	int a[]=null;
     	int i = 0;
         Scanner in = new Scanner(System.in);
-        while (in.hasNextInt()) {
-           a[i] = in.nextInt();
-           i++;
+        int len = in.nextInt();
+        int []a = new int[len];
+        int []ans = new int[len];
+        for(i=0;i<len;i++){
+        	a[i] = in.nextInt();
         }
-        int Max = a[0];
+        int mark;
+        ans[0] = mark = a[0];  
 		int sum = 0;
-		for (i = 0; i < a.length; i++) {
-			sum += a[i];
-			if (sum > Max) {
-				Max = sum;
-			}
-			if (a[i]<0) {
-				sum = 0;
-			}
+		for (i = 1; i < len; i++) {
+			ans[i]=Math.max(ans[i-1]+a[i],a[i]);  
+            if(mark<ans[i])   mark=ans[i]; 
 		}
-		System.out.println(Max);
-    }
-	
+		System.out.println(mark);
+    }	
 }
