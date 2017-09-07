@@ -2,7 +2,7 @@ package algorithm.some_implementation.concurrent.ProducerConsumers;
 
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.TimeUnit;
+
 
 public class Consumer implements Runnable {
 	private BlockingQueue<String> queue;
@@ -19,13 +19,12 @@ public class Consumer implements Runnable {
 		try {
 			while (isRunning) {
 				System.out.println("正从队列获取数据...");
-				String data = queue.poll(2, TimeUnit.SECONDS);
+				String data = queue.take();
 				if (null != data) {
 					System.out.println("拿到数据：" + data);
 					System.out.println("正在消费数据：" + data);
 					Thread.sleep(r.nextInt(DEFAULT_RANGE_FOR_SLEEP));
 				} else {
-					// 超过2s还没数据，认为所有生产线程都已经退出，自动退出消费线程。
 					isRunning = false;
 				}
 			}

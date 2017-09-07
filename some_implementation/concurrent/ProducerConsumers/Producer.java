@@ -5,6 +5,8 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+
+
 public class Producer implements Runnable {
 	private volatile boolean isRunning = true;
 	private BlockingQueue queue;
@@ -23,15 +25,17 @@ public class Producer implements Runnable {
 		try {
 			while (isRunning) {
 				System.out.println("正在生产数据...");
-				Thread.sleep(r.nextInt(DEFAULT_RANGE_FOR_SLEEP));
+				//Thread.sleep(r.nextInt(DEFAULT_RANGE_FOR_SLEEP));
 
 				data = "data:" + count.incrementAndGet();
 				System.out.println("将数据：" + data + "放入队列...");
+				//queue.put(data);
 				if (!queue.offer(data, 2, TimeUnit.SECONDS)) {
-					System.out.println("放入数据失败：" + data);
-				}
+                    System.out.println("放入数据失败：" + data);
+                }
 			}
-		} catch (InterruptedException e) {
+		} 
+		catch (InterruptedException e) {
 			e.printStackTrace();
 			Thread.currentThread().interrupt();
 		} finally {
