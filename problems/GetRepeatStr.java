@@ -4,6 +4,12 @@ import java.awt.image.RescaleOp;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 获取一个字符串中重复的字符串
+ * 使用map去重并记录出现次数
+ * @author 10142
+ *
+ */
 public class GetRepeatStr {
 	public static void main(String[] args) {
 		Map<String, Integer> resMap = new HashMap<String, Integer>();
@@ -28,6 +34,6 @@ public class GetRepeatStr {
 		}
 
 	}
-
+	
 
 }
