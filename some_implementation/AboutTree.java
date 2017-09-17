@@ -1,8 +1,10 @@
 package algorithm.some_implementation;
 
+import static org.hamcrest.CoreMatchers.nullValue;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * 二叉树(遍历)
@@ -23,7 +25,78 @@ public class AboutTree {
 			this.val = val;
 		}
 	}
-
+	
+	
+	/**
+	 * 二叉搜索树转链表 
+	 * @param pRootOfTree
+	 * @return
+	 */
+	public TreeNode Convert(TreeNode pRootOfTree) {
+		Stack<TreeNode> stack = new Stack<>();
+		while(pRootOfTree != null){
+			
+		}
+        return null;
+    }
+	/**
+	 * 先序遍历非递归
+	 * @param root
+	 */
+	public void preorderTraverse(TreeNode root){
+		Stack<TreeNode> stack = new Stack<>();
+		TreeNode pNode = root;
+		while(pNode != null || !stack.isEmpty()){
+			if(pNode!=null){
+				System.out.println(pNode.val + " ");
+				stack.push(pNode);
+				pNode = pNode.left;
+			}else {
+				pNode = stack.pop();
+				pNode = pNode.right;
+			}
+			
+		}
+	}
+	/**
+	 * 中序遍历非递归
+	 */
+	public void inorderTraverse(TreeNode root){
+		Stack<TreeNode> stack = new Stack<>();
+		TreeNode pNode = root;
+		while(!stack.isEmpty()||pNode!=null){
+			while(pNode!=null && !stack.isEmpty()){
+				//sout这里是前序遍历
+				stack.push(pNode);
+				pNode = pNode.left;
+			}
+			if(!stack.isEmpty()){
+				pNode = stack.pop();
+				System.out.println(pNode.val);
+				pNode = pNode.right;
+			}
+		}
+			
+	}
+	
+	/**
+	 * 镜像二叉树
+	 * @param root
+	 */
+	public void Mirror(TreeNode root) {
+		if(root == null) return ;
+		TreeNode node = new TreeNode();
+		if(root.left!=null || root.right!=null){
+			node = root.left;
+			root.left = root.right;
+			root.right = node;
+		}
+		if(root.left!=null)
+			Mirror(root.left);
+		if(root.right!=null)
+			Mirror(root.right);
+	}
+	
 	// 构建二叉树 递归 (误) 翻转后有错误
 	public TreeNode creatTree(int[] data, int index) {
 		if (index > data.length || data[index] == '#')
@@ -91,22 +164,22 @@ public class AboutTree {
 	 * 由上述分析结果，可以递归调用构建函数，根据左子树、右子树的先序、中序遍历重建左、右子树。 13
 	 */
 	public TreeNode reConstructBinaryTree(int[] pre, int[] in) {
-		if (pre.length == 0||in.length == 0)
+		if (pre.length == 0 || in.length == 0)
 			return null; // 长度为0返回空
 		TreeNode res = new TreeNode(pre[0]);
 
-		for (int i = 0; i < in.length ; i++) {
-			if(pre[0] == in[i]){				//Arrays.copyOfRange(original, from, to)将置顶数组的范围赋值到新数组
-				res.left = reConstructBinaryTree(Arrays.copyOfRange(pre, 1, i+1),Arrays.copyOfRange(in, 0, i));
-				res.right = reConstructBinaryTree(Arrays.copyOfRange(pre, i+1, pre.length),Arrays.copyOfRange(in, i+1, in.length));
+		for (int i = 0; i < in.length; i++) {
+			if (pre[0] == in[i]) { // Arrays.copyOfRange(original, from,
+									// to)将置顶数组的范围赋值到新数组
+				res.left = reConstructBinaryTree(Arrays.copyOfRange(pre, 1, i + 1), Arrays.copyOfRange(in, 0, i));
+				res.right = reConstructBinaryTree(Arrays.copyOfRange(pre, i + 1, pre.length),
+						Arrays.copyOfRange(in, i + 1, in.length));
 			}
 		}
 		return res;
 	}
 
-	
 	public static void main(String[] args) {
 
-		
 	}
 }
