@@ -9,17 +9,30 @@ import java.util.Stack;
 public class Solution {
 
 	public static void main(String[] args) {
-
+		int a[] = {-2,-8,-1,-5,-9};
+		System.out.println(FindGreatestSumOfSubArray(a));
 	}
 
 	/**
-	 * 连续子数组最大和
+	 * 连续子数组最大和(正数)
 	 * @param array
 	 * @return
 	 */
-	public int FindGreatestSumOfSubArray(int[] array) {
-		
-        return 0;
+	public static int FindGreatestSumOfSubArray(int[] array) {
+		if(array.length==0) return 0;
+		int thisSum = array[0];
+		int maxSum = array[0];
+		for(int i=1;i<array.length;i++){
+			if(thisSum>0){
+				thisSum += array[i];
+			}else{
+				thisSum = array[i];
+			}
+			if(thisSum > maxSum){
+				maxSum = thisSum;
+			}
+		}
+        return maxSum;
     }
 	/**
 	 * 螺旋矩阵
