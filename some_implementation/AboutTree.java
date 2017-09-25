@@ -26,7 +26,9 @@ public class AboutTree {
 		}
 	}
 	
-	
+	public static void main(String[] args) {
+
+	}
 	/**
 	 * 二叉搜索树转链表 
 	 * @param pRootOfTree
@@ -57,6 +59,19 @@ public class AboutTree {
 			}
 			
 		}
+		/*
+		while(pNode != null || !stack.isEmpty()){
+			while(pNode != null){
+				System.out.println(pNode);
+				stack.push(pNode);
+				pNode = pNode.left;
+			}
+			if(!stack.isEmpty()){
+				pNode = stack.pop();
+				pNode = pNode.right;
+			}
+		}
+		*/
 	}
 	/**
 	 * 中序遍历非递归
@@ -65,7 +80,7 @@ public class AboutTree {
 		Stack<TreeNode> stack = new Stack<>();
 		TreeNode pNode = root;
 		while(!stack.isEmpty()||pNode!=null){
-			while(pNode!=null && !stack.isEmpty()){
+			while(pNode!=null){
 				//sout这里是前序遍历
 				stack.push(pNode);
 				pNode = pNode.left;
@@ -76,7 +91,21 @@ public class AboutTree {
 				pNode = pNode.right;
 			}
 		}
-			
+		/*//和前面等价
+		Stack<TreeNode> stack = new Stack<>();
+		TreeNode pNode = root;
+		while(!stack.isEmpty() || pNode != null){
+			if(pNode != null){
+				stack.push(pNode);
+				pNode = pNode.left;
+			}else{
+				pNode = stack.peek();
+				stack.pop();
+				System.out.println(pNode.val);
+				pNode = pNode.right;
+			}
+		}
+		*/
 	}
 	
 	/**
@@ -98,13 +127,12 @@ public class AboutTree {
 	}
 	
 	// 构建二叉树 递归 (误) 翻转后有错误
-	public TreeNode creatTree(int[] data, int index) {
+	public void creatTree(TreeNode node,int[] data, int index) {
 		if (index > data.length || data[index] == '#')
-			return null;
-		TreeNode node = new TreeNode(data[index]);
-		node.left = creatTree(data, 2 * index + 1);
-		node.right = creatTree(data, 2 * index + 2);
-		return node;
+			return ;
+		node.val = data[index];
+		creatTree(node.left,data, 2 * index + 1);
+		creatTree(node.right,data, 2 * index + 2);
 	}
 
 	// 二叉树深度
@@ -179,7 +207,5 @@ public class AboutTree {
 		return res;
 	}
 
-	public static void main(String[] args) {
 
-	}
 }
