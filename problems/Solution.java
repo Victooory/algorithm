@@ -1,18 +1,68 @@
 package algorithm.problems;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.hamcrest.CoreMatchers.not;
 
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Stack;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+
 
 public class Solution {
 
 	public static void main(String[] args) {
-		int a[] = {-2,-8,-1,-5,-9};
-		System.out.println(FindGreatestSumOfSubArray(a));
+		String string = new String("abc");
+		ArrayList<String> arrayList = new Solution().Permutation(string);
+		for(int i=0;i<arrayList.size();i++){
+			System.out.println(arrayList.get(i));
+		}
+       
 	}
+	
 
+	/**
+	 * 字符串全排列
+	 * 关于set 可以用判断交换是否相等来不添加重复的字符串
+	 * @param str
+	 * @return
+	 */
+	public ArrayList<String> Permutation(String str) {
+	     ArrayList<String> array = new ArrayList();
+	     if(str == null || str.length() == 0) return array;
+	     char c[] = str.toCharArray();
+	     HashSet<String> set = new HashSet<>();
+	     Arrays.sort(c);
+	     fun(set,c,0);
+	     array.addAll(set);
+	     Collections.sort(array);
+	     return array;
+    }
+	public void fun(HashSet<String> set,char []c,int k){
+		if(k == c.length){
+			set.add(new String(c));
+			return ;
+		}
+		for(int i=k;i<c.length;i++){
+			swap(c, i, k);
+			fun(set, c, k+1);
+			swap(c, i, k);
+		}
+	}
+	public void swap(char str[],int a,int b){
+		if(a != b){
+			char temp;
+			temp = str[a];
+			str[a] = str[b];
+			str[b] = temp;
+		}
+	}
 	/**
 	 * 连续子数组最大和(正数)
 	 * @param array
