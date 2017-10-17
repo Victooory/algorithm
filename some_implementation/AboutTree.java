@@ -125,6 +125,22 @@ public class AboutTree {
 		if(root.right!=null)
 			Mirror(root.right);
 	}
+	/**
+	 * 二叉树是不是对称
+	 * @param pRoot
+	 * @return
+	 */
+    public boolean isSymmetrical(TreeNode pRoot)
+    {
+    	if(pRoot == null) return true;
+        return f(pRoot.left,pRoot.right);
+    }
+    public boolean f(TreeNode left,TreeNode right) {
+    	if(left ==null && right == null) return true;
+    	if(left !=null && right !=null)
+    		return left.val == right.val && f(left.left, right.right) && f(left.right, right.left);
+    	return false;
+    }
 	
 	// 构建二叉树 递归 (误) 翻转后有错误
 	public void creatTree(TreeNode node,int[] data, int index) {
